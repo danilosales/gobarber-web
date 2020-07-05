@@ -24,16 +24,24 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint",
         "react-hooks",
+        "@typescript-eslint",
         "prettier"
     ],
     "rules": {
+      "prettier/prettier": "error",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       "prettier/prettier": "error",
       "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
       "import/prefer-default-export": "off",
+      "camelcase": "off",
+      "@typescript-eslint/explicit-function-return-type": [
+        "error",
+        {
+          "allowExpressions": true
+        }
+      ],
       "import/extensions": [
         "error",
         "ignorePackages",
