@@ -31,8 +31,10 @@
     "rules": {
       "prettier/prettier": "error",
       "react-hooks/rules-of-hooks": "error",
+      "react/jsx-one-expression-per-line": "off",
+      "react/prop-types": "off",
+      "react/jsx-props-no-spreading": "off",
       "react-hooks/exhaustive-deps": "warn",
-      "prettier/prettier": "error",
       "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
       "import/prefer-default-export": "off",
       "camelcase": "off",
