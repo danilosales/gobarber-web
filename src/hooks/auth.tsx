@@ -1,9 +1,14 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 import api from '../services/api';
 
+interface User {
+  id: string;
+  name: string;
+  avatar_url: string;
+}
 interface AuthState {
   token: string;
-  user: Record<string, unknown>;
+  user: User;
 }
 
 interface SignInCredentials {
@@ -12,7 +17,7 @@ interface SignInCredentials {
 }
 
 interface AuthContextData {
-  user: Record<string, unknown>;
+  user: User;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
 }
@@ -47,7 +52,7 @@ const AuthProvider: React.FC = ({ children }) => {
 
   const signOut = useCallback(() => {
     localStorage.removeItem('@GoBarber:token');
-    localStorage.removetem('@GoBarber:user');
+    localStorage.removeItem('@GoBarber:user');
 
     setData({} as AuthState);
   }, []);
