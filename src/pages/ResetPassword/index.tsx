@@ -2,7 +2,7 @@ import React, { useRef, useCallback } from 'react';
 import { FiLock } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
-import { useHistory, useLocation,  } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import { FormHandles } from '@unform/core';
 import logoImg from '../../assets/logo.svg';
@@ -33,15 +33,17 @@ const ResetPassword: React.FC = () => {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
           password: Yup.string().required('Senha obrigatória'),
-          password_confirmation: Yup.string()
-            .oneOf([Yup.ref('password')], 'Confirmação incorreta')
+          password_confirmation: Yup.string().oneOf(
+            [Yup.ref('password')],
+            'Confirmação incorreta',
+          ),
         });
 
         await schema.validate(data, {
           abortEarly: false,
         });
 
-        const { password, password_confirmation} = data;
+        const { password, password_confirmation } = data;
         const token = location.search.replace('?token=', '');
 
         if (!token) {
@@ -51,7 +53,7 @@ const ResetPassword: React.FC = () => {
         await api.post('/password/reset', {
           password,
           password_confirmation,
-          token
+          token,
         });
 
         history.push('/');
@@ -95,7 +97,6 @@ const ResetPassword: React.FC = () => {
             />
             <Button type="submit">Alterar senha</Button>
           </Form>
-
         </AnimationContainer>
       </Content>
       <Background />
