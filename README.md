@@ -39,7 +39,7 @@
 
 ## 💇🏻‍♂️ About the project
 
-Soon
+Providers can see all their appointments, manage the times, also see if one client canceled the schedule.
 
 To see the **api**, click here: [GoBarber Rest API](https://github.com/danilosales/gobarber-backend)</br>
 To see the **mobile client**, click here: [GoBarber Mobile](https://github.com/danilosales/gobarber-app)
